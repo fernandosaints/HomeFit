@@ -10,14 +10,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    final logo = Hero(
-      tag: 'hero',
-      child: CircleAvatar(
-        backgroundColor: Colors.black,
-        radius: 48.0,
-        //child: Image.asset('assets/logo.png'),
-      ),
-    );
+    
+    final logo = Container(child: Image.asset('assets/logo.png'));
 
     final email = TextFormField(
       keyboardType: TextInputType.emailAddress,

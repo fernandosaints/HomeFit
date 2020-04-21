@@ -50,6 +50,10 @@ flutter:
    - assets/EscaladaReversa.gif
    - assets/PranchaAlternada.gif
    - assets/Caminhada.gif
+   - assets/Inchworm.gif
+   - assets/FlexaoHindu.gif
+   - assets/SideCrunch.gif
+   - assets/logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
