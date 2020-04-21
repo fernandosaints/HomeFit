@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class MyCard extends StatelessWidget {
-  final String text;
+  final String exercicio;
   final Color color;
 
-  const MyCard({this.text, this.color});
+  const MyCard({this.exercicio, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +28,13 @@ class MyCard extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(8.0),
-            // child: Image.asset(
-            //   "assets/",
-            //   fit: BoxFit.contain,
-            // ),
+            child: Image.asset(
+              "assets/" + exercicio + ".gif",
+              fit: BoxFit.contain,
+            ),
           ),
           Text(
-            text,
+            exercicio,
             style: TextStyle(fontSize: 24),
           )
         ],

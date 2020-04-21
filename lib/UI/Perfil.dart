@@ -38,11 +38,15 @@ class _PerfilState extends State<Perfil> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text(_titleText),
+        backgroundColor: Colors.white,
+        title: Text(_titleText, style: TextStyle(color:Colors.black),),
         centerTitle: true,
+        elevation: 0.0,
+        iconTheme: IconThemeData(
+          color: Colors.black
+        ),
       ),
       body: Center(
         child: Padding(
@@ -54,7 +58,7 @@ class _PerfilState extends State<Perfil> {
               Container(
                 width: double.infinity,
                 child: Card(
-                  color: Colors.blueGrey[200],
+                  color: Color(0xFFF7F7F7),//Colors.blueGrey[200],
                   margin: EdgeInsets.only(top: 60.0, bottom: 28.0),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16.0),
@@ -87,7 +91,7 @@ class _PerfilState extends State<Perfil> {
                             ],
                           ),
 
-                          // Level
+                          // Nível
                           CircularPercentIndicator(
                             radius: 120.0,
                             lineWidth: 13.0,
@@ -100,7 +104,7 @@ class _PerfilState extends State<Perfil> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 Text(
-                                  "Level",
+                                  "Nível",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
@@ -138,7 +142,7 @@ class _PerfilState extends State<Perfil> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(70.0),
                     border: Border.all(
-                      color: Colors.blueGrey[100],
+                      color: Colors.black,//Colors.blueGrey[100],
                       width: 6.0,
                     ),
                     boxShadow: [
@@ -200,7 +204,7 @@ class _PerfilState extends State<Perfil> {
         onPressed: () => {},
         child: Icon(
           _editMode ? Icons.done : Icons.edit,
-          color: Colors.blueGrey[900],
+          color: Colors.black//Colors.blueGrey[900],
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

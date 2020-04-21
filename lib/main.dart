@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:home_fit/UI/Exercicios.dart';
+import 'package:home_fit/UI/LoginPage.dart';
 import 'package:home_fit/UI/Perfil.dart';
 import 'package:home_fit/UI/ScaleRoute.dart';
+import 'package:home_fit/Util/exercicos_data.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: LoginPage(),
     );
   }
 }
@@ -34,16 +36,17 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text('HomeFit'),
+        backgroundColor: Colors.white,
+        title: Text('HomeFit', style: TextStyle(color:Colors.black),),
         centerTitle: true,
+        elevation: 0.0,
         actions: <Widget>[
           IconButton(
             icon: Icon(
               Icons.person,
-              color: Colors.white,
+              color: Colors.black,
             ),
             onPressed: () => Navigator.push(
               context,
@@ -55,6 +58,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+          ),
+          IconButton(
+            icon: Icon(
+              Icons.exit_to_app,
+              color: Colors.black,
+            ),
+            onPressed: () => Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => LoginPage())),
           ),
         ],
       ),
@@ -70,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 26,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
               ),
@@ -96,7 +106,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       _onExercicioselect(
                       context,
                       'Iniciante',
-                      Colors.green,
+                      inicianteExercicios,
+                      Colors.green
                       ),
                     }
                   ),
@@ -125,9 +136,9 @@ class _MyHomePageState extends State<MyHomePage> {
                      _onExercicioselect(
                       context,
                       'Intermediário',
+                      intermediarioExercicios,
                       Colors.blue,
-                    ),
-                    }
+                    ),}
                   ),
                 ),
               ),
@@ -154,6 +165,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     _onExercicioselect(
                       context,
                       'Avançado',
+                      avancadoExercicios,
                       Colors.deepPurple[400],
                     ),
                     }
@@ -170,6 +182,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _onExercicioselect(
     BuildContext context,
     String title,
+    List<String> exercicios,
     Color color,
   ) async {
     Navigator.push(
@@ -177,6 +190,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ScaleRoute(
         page: Exercicios(
           title: title,
+          exercicios: exercicios,
           color: color,
         ),
       ),
