@@ -80,11 +80,24 @@ class _PerfilState extends State<Perfil> {
                                 children: <Widget>[
                                   AnimatedSwitcher(
                                     duration: Duration(milliseconds: 100),
-                                    child: _editMode
-                                        ? _editNameWidget()
-                                        : _displayNameWidget(
-                                            _displayName,
-                                          ),
+                                    child: _displayNameWidget(_displayName),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+
+                          //Display Email
+                          Stack(
+                            alignment: Alignment.center,
+                            children: <Widget>[
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  AnimatedSwitcher(
+                                    duration: Duration(milliseconds: 100),
+                                    child: Text(widget.email) //_displayNameWidget(widget.email),
                                   ),
                                 ],
                               ),
@@ -156,6 +169,8 @@ class _PerfilState extends State<Perfil> {
                     Hero(
                       tag: 'Perfil',
                       child: CircleAvatar(
+                        backgroundColor: Colors.lightBlueAccent,
+                        backgroundImage: AssetImage('assets/avatar.png'),
                         radius: 60,
                       ),
                     ),
@@ -211,14 +226,14 @@ class _PerfilState extends State<Perfil> {
     );
   }
 
-  Widget _displayNameWidget(String displayName) {
+  Widget _displayNameWidget(String text) {
     return Center(
       child: Container(
         alignment: Alignment.center,
         width: 200,
         padding: EdgeInsets.fromLTRB(0, 12.0, 3.0, 12.0),
         child: Text(
-          displayName,
+          text,
           style: TextStyle(
             fontSize: 25.0,
           ),

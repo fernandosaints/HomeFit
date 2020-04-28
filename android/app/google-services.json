@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "894403082830",
+    "firebase_url": "https://homefit-e1289.firebaseio.com",
+    "project_id": "homefit-e1289",
+    "storage_bucket": "homefit-e1289.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894403082830:android:8269f7c05de9f6880fa11f",
+        "android_client_info": {
+          "package_name": "com.example.home_fit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894403082830-6et16e71uhjo79otopvho7jjt8nqui87.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKytfVBpO5M86T0QC4mV0v4NnMtw4i6ok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894403082830-6et16e71uhjo79otopvho7jjt8nqui87.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

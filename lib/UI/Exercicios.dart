@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:home_fit/UI/HomePage.dart';
 import 'package:home_fit/UI/MyCard.dart';
-import 'package:home_fit/main.dart';
 
 class Exercicios extends StatelessWidget {
   final String title;
@@ -54,7 +54,7 @@ class Exercicios extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => MyHomePage()
+        builder: (context) => HomePage()
       ),
     );
   }
