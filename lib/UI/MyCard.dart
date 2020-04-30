@@ -26,12 +26,14 @@ class MyCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Image.asset(
-              "assets/" + exercicio + ".gif",
-              fit: BoxFit.contain,
-            ),
+          Expanded(
+            child:Container(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                "assets/" + exercicio + ".gif",
+                fit: BoxFit.contain,
+              ),
+            )
           ),
           Text(
             exercicio,

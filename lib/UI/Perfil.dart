@@ -58,7 +58,7 @@ class _PerfilState extends State<Perfil> {
               Container(
                 width: double.infinity,
                 child: Card(
-                  color: Color(0xFFF7F7F7),//Colors.blueGrey[200],
+                  color: Color(0xFFF7F7F7),
                   margin: EdgeInsets.only(top: 60.0, bottom: 28.0),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16.0),
@@ -71,39 +71,21 @@ class _PerfilState extends State<Perfil> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           // Display Name
-                          Stack(
-                            alignment: Alignment.center,
+                          Text(widget.displayName, style: TextStyle(fontSize: 25),),
+
+                          //Display Infos
+                          Column(
                             children: <Widget>[
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  AnimatedSwitcher(
-                                    duration: Duration(milliseconds: 100),
-                                    child: _displayNameWidget(_displayName),
-                                  ),
-                                ],
-                              ),
+                              Text("Email:  "+widget.email),
+                              Divider(),
+                              Text("Altura:     "+"1.81"),
+                              Divider(),
+                              Text("Peso:     "+"65kg"),
+                              Divider(),
+                              Text("Gênero:     "+"M"),
                             ],
                           ),
-
-                          //Display Email
-                          Stack(
-                            alignment: Alignment.center,
-                            children: <Widget>[
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  AnimatedSwitcher(
-                                    duration: Duration(milliseconds: 100),
-                                    child: Text(widget.email) //_displayNameWidget(widget.email),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-
+                          
                           // Nível
                           CircularPercentIndicator(
                             radius: 120.0,
@@ -216,6 +198,7 @@ class _PerfilState extends State<Perfil> {
 
       // Edit Floating Action Button
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.lightBlueAccent,
         onPressed: () => {},
         child: Icon(
           _editMode ? Icons.done : Icons.edit,
@@ -227,18 +210,23 @@ class _PerfilState extends State<Perfil> {
   }
 
   Widget _displayNameWidget(String text) {
-    return Center(
-      child: Container(
-        alignment: Alignment.center,
-        width: 200,
-        padding: EdgeInsets.fromLTRB(0, 12.0, 3.0, 12.0),
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 25.0,
+    return Theme(
+      data: ThemeData(
+        accentColor: Colors.red
+      ),
+      child: Center(
+        child: Container(
+          alignment: Alignment.center,
+          width: 200,
+          padding: EdgeInsets.fromLTRB(0, 12.0, 3.0, 12.0),
+          child: Text(
+            text,
+            style: TextStyle(
+              fontSize: 25.0,
+            ),
           ),
         ),
-      ),
+      )
     );
   }
 

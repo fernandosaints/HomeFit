@@ -1,17 +1,17 @@
 List<String> inicianteExercicios = [
   'Rollback',
   'Caminhada',
-  'BearCrawl',
+  'Bear-Crawl',
 ];
 
 List<String> intermediarioExercicios = [
-  'SideCrunch',
-  'SquatAlternado',
-  'PranchaAlternada',
+  'Side-Crunch',
+  'Squat-Alternado',
+  'Prancha-Alternada',
 ];
 
 List<String> avancadoExercicios = [
-  'EscaladaReversa',
+  'Escalada-Reversa',
   'Inchworm',
-  'FlexaoHindu',
+  'Flexao-Hindu',
 ];

@@ -19,34 +19,40 @@ class Exercicios extends StatelessWidget {
         centerTitle: true,
         title: Text(title),
       ),
-      body: Center(
-        child: Container(
-          height: 500,
-          child: Swiper(
-            itemCount: 3,
-            loop: false,
-            viewportFraction: 0.8,
-            scale: 0.82,
-            outer: true,
-            pagination: SwiperPagination(
-              alignment: Alignment.bottomCenter,
-              margin: EdgeInsets.all(32.0),
-            ),
-            onTap: (index) => _onSelect(context, exercicios[index]),
-            itemBuilder: (BuildContext context, int index) {
-              return Center(
-                child: Container(
-                  height: 360,
-                  child: MyCard(
-                    exercicio: exercicios[index],
-                    color: Color(0xFFF7F7F7),
+      body: Theme(
+        data: ThemeData(
+          primaryColor: color,
+          accentColor: color,
+        ),
+        child: Center(
+          child: Container(
+            height: 500,
+            child: Swiper(
+              itemCount: 3,
+              loop: false,
+              viewportFraction: 0.8,
+              scale: 0.82,
+              outer: true,
+              pagination: SwiperPagination(
+                alignment: Alignment.bottomCenter,
+                margin: EdgeInsets.all(32.0),
+              ),
+              onTap: (index) => _onSelect(context, exercicios[index]),
+              itemBuilder: (BuildContext context, int index) {
+                return Center(
+                  child: Container(
+                    height: 360,
+                    child: MyCard(
+                      exercicio: exercicios[index],
+                      color: Color(0xFFF7F7F7),
+                    ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
         ),
-      ),
+      )
     );
   }
 
