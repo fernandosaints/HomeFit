@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
               Icons.exit_to_app,
               color: Colors.black,
             ),
-            onPressed: signOut,//Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => LoginSignupPage())),
+            onPressed: signOut,
           ),
         ],
       ),

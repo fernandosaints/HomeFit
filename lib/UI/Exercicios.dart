@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:home_fit/UI/HomePage.dart';
+import 'package:home_fit/UI/Info.dart';
 import 'package:home_fit/UI/MyCard.dart';
+import 'package:home_fit/UI/ScaleRoute.dart';
 
 class Exercicios extends StatelessWidget {
   final String title;
@@ -18,6 +20,18 @@ class Exercicios extends StatelessWidget {
         backgroundColor: color,
         centerTitle: true,
         title: Text(title),
+        actions: <Widget>[
+          IconButton(
+            padding: EdgeInsets.fromLTRB(0, 2, 0, 0),
+            icon: Icon(
+              Icons.info_outline,
+              color: Colors.white,
+            ),
+            onPressed: () => Navigator.push(
+              context, ScaleRoute(page:Info(title: title,color: color)),
+            ),
+          ),
+        ],
       ),
       body: Theme(
         data: ThemeData(
@@ -57,11 +71,11 @@ class Exercicios extends StatelessWidget {
   }
 
   void _onSelect(BuildContext context, String customModelName) async {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => HomePage()
-      ),
-    );
+    // Navigator.push(
+    //   context,
+    //   MaterialPageRoute(
+    //     builder: (context) => HomePage()
+    //   ),
+    // );
   }
 }
