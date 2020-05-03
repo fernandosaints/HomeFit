@@ -46,11 +46,10 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
           print('Signed in: $userId');
         } else {
           userId = await widget.auth.signUp(_email, _password);
-          //widget.auth.sendEmailVerification();
-          //_showVerifyEmailSentDialog();
+          
           print('Signed up user: $userId');
           Alert(context: context,
-            style: AlertStyle(isCloseButton: false), //alertStyle,
+            style: AlertStyle(isCloseButton: false),
             type: AlertType.success,
             title: "USUÁRIO CADASTRADO",
             desc: "Seu usuário foi cadastrado com sucesso.",

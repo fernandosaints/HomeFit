@@ -74,6 +74,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
+              // Iniciante Button
               Padding(
                 padding: const EdgeInsets.all(32.0),
                 child: ButtonTheme(

@@ -10,11 +10,23 @@ class Info extends StatelessWidget {
     return Container(
       child: Column(
         children: <Widget>[
-          Text("O plano iniciante foi planejado para aqueles que malham uma vez por semana.", style: TextStyle(fontSize: 25)),
+          Row(children: <Widget>[
+            Expanded(
+              child: Text("O plano iniciante foi planejado para aqueles que malham uma vez por semana.", 
+              style: TextStyle(fontSize: 25,color: Colors.black)),),
+          ],),
           SizedBox(height: 30,),
-          Text("O plano intermediário foi planejado para aqueles que malham de 2 a 3 vezes por semana.", style: TextStyle(fontSize: 25)),
+          Row(children: <Widget>[
+            Expanded(
+              child: Text("O plano intermediário foi planejado para aqueles que malham de 2 a 3 vezes por semana.", 
+              style: TextStyle(fontSize: 25, color: Colors.black)),),
+          ],),
           SizedBox(height: 30,),
-          Text("O plano avançado foi planejado para aqueles que malham de 4 a 6 vezes por semana.", style: TextStyle(fontSize: 25))
+          Row(children: <Widget>[
+            Expanded(
+              child: Text("O plano avançado foi planejado para aqueles que malham de 4 a 6 vezes por semana.", 
+              style: TextStyle(fontSize: 25, color: Colors.black)),),
+          ],),
         ],
       ),
     );
