@@ -26,7 +26,7 @@ class MyCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          Expanded(
+          Card(
             child:Container(
               padding: const EdgeInsets.all(8.0),
               child: Image.asset(
