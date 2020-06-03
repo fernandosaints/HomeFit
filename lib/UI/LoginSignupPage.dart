@@ -23,7 +23,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
 
   bool _isLoading;
   bool _isLoginForm;
-   
+  
   bool validateAndSave() {
     final form = _formKey.currentState;
     if (form.validate()) {

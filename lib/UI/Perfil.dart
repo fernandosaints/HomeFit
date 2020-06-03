@@ -1,4 +1,6 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class Perfil extends StatefulWidget {
@@ -17,6 +19,7 @@ class Perfil extends StatefulWidget {
 }
 
 class _PerfilState extends State<Perfil> {
+  
   bool _editMode = false;
   TextEditingController _displayNameController;
   String _titleText;
@@ -35,6 +38,17 @@ class _PerfilState extends State<Perfil> {
     super.initState();
   }
 
+  File _image;
+  final picker = ImagePicker();
+
+  Future getImage() async {
+    final pickedFile = await picker.getImage(source: ImageSource.camera);
+
+    setState(() {
+      _image = File(pickedFile.path);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,6 +61,15 @@ class _PerfilState extends State<Perfil> {
         iconTheme: IconThemeData(
           color: Colors.black
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.add_a_photo,
+              color: Colors.black,
+            ),
+            onPressed: getImage,
+          )
+        ],
       ),
       body: Center(
         child: Padding(
@@ -152,7 +175,7 @@ class _PerfilState extends State<Perfil> {
                       tag: 'Perfil',
                       child: CircleAvatar(
                         backgroundColor: Colors.lightBlueAccent,
-                        backgroundImage: AssetImage('assets/avatar.png'),
+                        backgroundImage: _image == null ? AssetImage('assets/avatar.png') : FileImage(_image),
                         radius: 60,
                       ),
                     ),
