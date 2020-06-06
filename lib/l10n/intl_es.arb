@@ -1,0 +1,28 @@
+{
+  "@@last_modified": "2020-06-06T18:31:59.555776",
+  "welcome": "Bienvenido",
+  "@welcome": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "profile": "Perfil",
+  "@profile": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "begginer": "Principiante",
+  "@begginer": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "intermediate": "Intermedio",
+  "@intermediate": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "advanced": "Avanzado",
+  "@advanced": {
+    "type": "text",
+    "placeholders": {}
+  }
+}

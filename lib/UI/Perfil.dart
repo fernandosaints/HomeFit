@@ -1,7 +1,10 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:home_fit/Services/AppLocalizations.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Perfil extends StatefulWidget {
   final String email;
@@ -20,42 +23,34 @@ class Perfil extends StatefulWidget {
 
 class _PerfilState extends State<Perfil> {
   
-  bool _editMode = false;
-  TextEditingController _displayNameController;
   String _titleText;
-  String _displayName;
-
-  @override
-  void initState() {
-    _displayNameController = TextEditingController(
-      text: widget.displayName,
-    );
-
-    _titleText = 'Perfil';
-
-    _displayName = widget.displayName;
-
-    super.initState();
-  }
 
   File _image;
   final picker = ImagePicker();
 
-  Future getImage() async {
-    final pickedFile = await picker.getImage(source: ImageSource.camera);
+  @override
+  void initState() {
 
-    setState(() {
+    super.initState();
+  }
+  
+  Future getImage() async {
+
+    final pickedFile = await picker.getImage(source: ImageSource.camera);
+    
+    super.setState(() {
       _image = File(pickedFile.path);
     });
   }
 
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text(_titleText, style: TextStyle(color:Colors.black),),
+        title: Text(AppLocalizations.of(context).profile, style: TextStyle(color:Colors.black),),
         centerTitle: true,
         elevation: 0.0,
         iconTheme: IconThemeData(
@@ -179,38 +174,6 @@ class _PerfilState extends State<Perfil> {
                         radius: 60,
                       ),
                     ),
-
-                    // Edit Button
-                    Positioned(
-                      right: 0.0,
-                      bottom: 0.0,
-                      child: AnimatedContainer(
-                        margin: EdgeInsets.fromLTRB(
-                          0,
-                          0,
-                          _editMode ? 0 : 15,
-                          _editMode ? 0 : 15,
-                        ),
-                        duration: Duration(milliseconds: 100),
-                        height: _editMode ? 32 : 0,
-                        width: _editMode ? 32 : 0,
-                        decoration: BoxDecoration(
-                          color: Colors.blueGrey[100],
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                        child: FloatingActionButton(
-                          heroTag: null,
-                          elevation: 0.0,
-                          backgroundColor: Colors.blueGrey[100],
-                          child: Icon(
-                            Icons.edit,
-                            color: Colors.blueGrey[700],
-                            size: _editMode ? 19 : 0,
-                          ),
-                          onPressed: () => {},
-                        ),
-                      ),
-                    )
                   ],
                 ),
               ),
@@ -218,17 +181,6 @@ class _PerfilState extends State<Perfil> {
           ),
         ),
       ),
-
-      // Edit Floating Action Button
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.lightBlueAccent,
-        onPressed: () => {},
-        child: Icon(
-          _editMode ? Icons.done : Icons.edit,
-          color: Colors.black//Colors.blueGrey[900],
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 
@@ -250,21 +202,6 @@ class _PerfilState extends State<Perfil> {
           ),
         ),
       )
-    );
-  }
-
-  Widget _editNameWidget() {
-    return Container(
-      width: 200,
-      child: TextField(
-        autofocus: true,
-        style: TextStyle(
-          fontSize: 25,
-        ),
-        controller: _displayNameController,
-        textAlign: TextAlign.center,
-        decoration: InputDecoration(),
-      ),
     );
   }
 }

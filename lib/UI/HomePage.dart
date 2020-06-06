@@ -1,8 +1,9 @@
+import 'package:flag/flag.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:home_fit/Services/AppLocalizations.dart';
 import 'package:home_fit/Services/Authentication.dart';
 import 'package:home_fit/UI/Exercicios.dart';
-import 'package:home_fit/UI/LoginSignupPage.dart';
 import 'package:home_fit/UI/Perfil.dart';
 import 'package:home_fit/UI/ScaleRoute.dart';
 import 'package:home_fit/Util/exercicos_data.dart';
@@ -62,10 +63,31 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              ListTile(
+                leading: ButtonTheme(
+                  minWidth: 50,
+                  child: FlatButton(
+                  child: Flag('es',width: 50,),
+                  onPressed:(){
+                    setState(() {
+                      AppLocalizations.load(Locale('es'));
+                    });
+                  },
+                ),
+                ),
+                trailing: FlatButton(
+                  child: Flag('us',width: 50,),
+                  onPressed:(){
+                    setState(() {
+                      AppLocalizations.load(Locale('en'));
+                    });
+                  },
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.all(32.0),
                 child: Text(
-                  'Bem-vindo\n${"Fernando"}',
+                  AppLocalizations.of(context).welcome + '\n${"Fernando"}',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 26,
@@ -86,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                   child: FlatButton(
                     color: Colors.green,
                     child: Text(
-                      'Iniciante',
+                      AppLocalizations.of(context).begginer,
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.white,
@@ -95,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () => {
                       _onExercicioselect(
                       context,
-                      'Iniciante',
+                      AppLocalizations.of(context).begginer,
                       inicianteExercicios,
                       Colors.green
                       ),
@@ -116,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                   child: FlatButton(
                     color: Colors.blue,
                     child: Text(
-                      'Intermediário',
+                      AppLocalizations.of(context).intermediate,
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.white,
@@ -125,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () => {
                      _onExercicioselect(
                       context,
-                      'Intermediário',
+                      AppLocalizations.of(context).intermediate,
                       intermediarioExercicios,
                       Colors.blue,
                     ),}
@@ -145,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                   child: FlatButton(
                     color: Colors.deepPurple,
                     child: Text(
-                      'Avançado',
+                      AppLocalizations.of(context).advanced,
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.white,
@@ -154,7 +176,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () => {
                     _onExercicioselect(
                       context,
-                      'Avançado',
+                      AppLocalizations.of(context).advanced,
                       avancadoExercicios,
                       Colors.deepPurple[400],
                     ),
