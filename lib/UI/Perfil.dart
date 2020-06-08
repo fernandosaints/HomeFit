@@ -96,11 +96,11 @@ class _PerfilState extends State<Perfil> {
                             children: <Widget>[
                               Text("Email:  "+widget.email),
                               Divider(),
-                              Text("Altura:     "+"1.81"),
+                              Text(AppLocalizations.of(context).height+":     "+"1.81"),
                               Divider(),
-                              Text("Peso:     "+"65kg"),
+                              Text(AppLocalizations.of(context).weight+":     "+"65kg"),
                               Divider(),
-                              Text("Gênero:     "+"M"),
+                              Text(AppLocalizations.of(context).gender+":     "+"M"),
                             ],
                           ),
                           
@@ -117,7 +117,7 @@ class _PerfilState extends State<Perfil> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 Text(
-                                  "Nível",
+                                  AppLocalizations.of(context).level,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,

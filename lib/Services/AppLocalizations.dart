@@ -38,6 +38,38 @@ class AppLocalizations {
   String get advanced{
     return Intl.message('Advanced', name: 'advanced');
   }
+
+  String get height{
+    return Intl.message('Height', name: 'height');
+  }
+
+  String get weight{
+    return Intl.message('Weight', name: 'weight');
+  }
+
+  String get gender{
+    return Intl.message('Gender', name: 'gender');
+  }
+
+  String get level{
+    return Intl.message('Level', name: 'level');
+  }
+
+  String get details{
+    return Intl.message('Details', name: 'details');
+  }
+
+  String get text1{
+    return Intl.message('The begginers guide is for those that workout once a week', name: 'text1');
+  }
+
+  String get text2{
+    return Intl.message('The intermediate guide is for those that workout 2 or 3 times a week', name: 'text2');
+  }
+  
+  String get text3{
+    return Intl.message('The advanceded guide is for those that workout 4 to 6 times a week', name: 'text3');
+  }
 }
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

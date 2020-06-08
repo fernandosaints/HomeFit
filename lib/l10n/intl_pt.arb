@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-06-06T18:31:59.555776",
+  "@@last_modified": "2020-06-08T19:28:05.988556",
   "welcome": "Bem-vindo",
   "@welcome": {
     "type": "text",
@@ -22,6 +22,46 @@
   },
   "advanced": "Avançado",
   "@advanced": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "height": "Altura",
+  "@height": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "weight": "Peso",
+  "@weight": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "gender": "Gênero",
+  "@gender": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "level": "Nível",
+  "@level": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "details": "Detalhes",
+  "@details": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "text1": "O guia iniciante foi pensado para aqueles que malham uma vez por semana.",
+  "@text1": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "text2": "O guia intermediário foi pensado para aqueles que malham de 2 a 3 vezes por semana.",
+  "@text2": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "text3": "O guia avançado foi pensado para aqueles que malham de 4 a 6 vezes por semana.",
+  "@text3": {
     "type": "text",
     "placeholders": {}
   }

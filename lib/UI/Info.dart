@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fit/Services/AppLocalizations.dart';
 
 class Info extends StatelessWidget {
   final String title;
@@ -6,25 +7,25 @@ class Info extends StatelessWidget {
 
   const Info({this.title, this.color});
 
-  Widget _displayText(){
+  Widget _displayText(BuildContext context){
     return Container(
       child: Column(
         children: <Widget>[
           Row(children: <Widget>[
             Expanded(
-              child: Text("O plano iniciante foi planejado para aqueles que malham uma vez por semana.", 
+              child: Text(AppLocalizations.of(context).text1, 
               style: TextStyle(fontSize: 25,color: Colors.black)),),
           ],),
           SizedBox(height: 30,),
           Row(children: <Widget>[
             Expanded(
-              child: Text("O plano intermediário foi planejado para aqueles que malham de 2 a 3 vezes por semana.", 
+              child: Text(AppLocalizations.of(context).text2, 
               style: TextStyle(fontSize: 25, color: Colors.black)),),
           ],),
           SizedBox(height: 30,),
           Row(children: <Widget>[
             Expanded(
-              child: Text("O plano avançado foi planejado para aqueles que malham de 4 a 6 vezes por semana.", 
+              child: Text(AppLocalizations.of(context).text3, 
               style: TextStyle(fontSize: 25, color: Colors.black)),),
           ],),
         ],
@@ -39,7 +40,7 @@ class Info extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: color,
         centerTitle: true,
-        title: Text("Detalhes"),
+        title: Text(AppLocalizations.of(context).details),
         actions: <Widget>[
           IconButton(
             padding: EdgeInsets.fromLTRB(0, 2, 0, 0),
@@ -72,7 +73,7 @@ class Info extends StatelessWidget {
                       height: 460,
                       child: Column(
                         children: <Widget>[
-                          _displayText(),
+                          _displayText(context),
                         ],
                       ),
                     ),

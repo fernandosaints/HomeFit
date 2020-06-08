@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-06-06T18:31:59.555776",
+  "@@last_modified": "2020-06-08T19:28:05.988556",
   "welcome": "Bienvenido",
   "@welcome": {
     "type": "text",
@@ -22,6 +22,46 @@
   },
   "advanced": "Avanzado",
   "@advanced": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "height": "Altura",
+  "@height": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "weight": "Peso",
+  "@weight": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "gender": "Género",
+  "@gender": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "level": "Nivel",
+  "@level": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "details": "Detalles",
+  "@details": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "text1": "La guía para principiantes fue diseñada para aquellos que hacen ejercicio una vez por semana.",
+  "@text1": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "text2": "La guía intermedia fue diseñada para aquellos que hacen ejercicio de 2 a 3 veces por semana.",
+  "@text2": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "text3": "La guía avanzada fue diseñada para aquellos que hacen ejercicio de 4 a 6 veces por semana.",
+  "@text3": {
     "type": "text",
     "placeholders": {}
   }

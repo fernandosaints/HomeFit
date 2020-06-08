@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-06-06T18:31:59.555776",
+  "@@last_modified": "2020-06-08T19:28:05.988556",
   "welcome": "Welcome",
   "@welcome": {
     "type": "text",
@@ -22,6 +22,46 @@
   },
   "advanced": "Advanced",
   "@advanced": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "height": "Height",
+  "@height": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "weight": "Weight",
+  "@weight": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "gender": "Gender",
+  "@gender": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "level": "Level",
+  "@level": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "details": "Details",
+  "@details": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "text1": "The begginers guide is for those that workout once a week.",
+  "@text1": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "text2": "The intermediate guide is for those that workout 2 or 3 times a week.",
+  "@text2": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "text3": "The advanceded guide is for those that workout 4 to 6 times a week.",
+  "@text3": {
     "type": "text",
     "placeholders": {}
   }

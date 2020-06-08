@@ -23,8 +23,16 @@ class MessageLookup extends MessageLookupByLibrary {
   static _notInlinedMessages(_) => <String, Function> {
     "advanced" : MessageLookupByLibrary.simpleMessage("Advanced"),
     "begginer" : MessageLookupByLibrary.simpleMessage("Begginer"),
+    "details" : MessageLookupByLibrary.simpleMessage("Details"),
+    "gender" : MessageLookupByLibrary.simpleMessage("Gender"),
+    "height" : MessageLookupByLibrary.simpleMessage("Height"),
     "intermediate" : MessageLookupByLibrary.simpleMessage("Intermediate"),
+    "level" : MessageLookupByLibrary.simpleMessage("Level"),
     "profile" : MessageLookupByLibrary.simpleMessage("Profile"),
+    "text1" : MessageLookupByLibrary.simpleMessage("The begginers guide is for those that workout once a week."),
+    "text2" : MessageLookupByLibrary.simpleMessage("The intermediate guide is for those that workout 2 or 3 times a week."),
+    "text3" : MessageLookupByLibrary.simpleMessage("The advanceded guide is for those that workout 4 to 6 times a week."),
+    "weight" : MessageLookupByLibrary.simpleMessage("Weight"),
     "welcome" : MessageLookupByLibrary.simpleMessage("Welcome")
   };
 }
