@@ -1,4 +1,3 @@
-import 'package:flag/flag.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:home_fit/Services/AppLocalizations.dart';
@@ -28,6 +27,42 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.language, color: Colors.black,),
+              onPressed:(){
+                showDialog(context: context, child: SimpleDialog(
+                  backgroundColor: Colors.white,
+                  children: <Widget>[
+                    SimpleDialogOption(
+                      onPressed: () { 
+                        setState(() { AppLocalizations.load(Locale('pt')); } );
+                        Navigator.pop(context);
+                      },
+                      child: Image.asset('icons/flags/png/br.png', package: 'country_icons'),
+                    ),
+                    SimpleDialogOption(
+                      onPressed: () { 
+                        setState(() {
+                          AppLocalizations.load(Locale('gb'));});
+                          Navigator.pop(context);
+                        },
+                        child: Image.asset('icons/flags/png/gb.png', package: 'country_icons'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () { setState(() {
+                          AppLocalizations.load(Locale('es'));});
+                          Navigator.pop(context);
+                        },
+                        child: Image.asset('icons/flags/png/es.png', package: 'country_icons'),
+                      ),
+                  ],
+                ));
+              } 
+            );
+          },
+        ),
         backgroundColor: Colors.white,
         title: Text('HomeFit', style: TextStyle(color:Colors.black),),
         centerTitle: true,
@@ -63,27 +98,6 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              ListTile(
-                leading: ButtonTheme(
-                  minWidth: 50,
-                  child: FlatButton(
-                  child: Flag('es',width: 50,),
-                  onPressed:(){
-                    setState(() {
-                      AppLocalizations.load(Locale('es'));
-                    });
-                  },
-                ),
-                ),
-                trailing: FlatButton(
-                  child: Flag('us',width: 50,),
-                  onPressed:(){
-                    setState(() {
-                      AppLocalizations.load(Locale('en'));
-                    });
-                  },
-                ),
-              ),
               Padding(
                 padding: const EdgeInsets.all(32.0),
                 child: Text(
