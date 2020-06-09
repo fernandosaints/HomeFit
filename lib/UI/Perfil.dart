@@ -5,6 +5,10 @@ import 'package:image_picker/image_picker.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'Nivel.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+
+final nivel = Nivel();
 
 class Perfil extends StatefulWidget {
   final String email;
@@ -105,12 +109,13 @@ class _PerfilState extends State<Perfil> {
                           ),
                           
                           // Nível
-                          CircularPercentIndicator(
+                          Observer(
+                            builder: (_) => CircularPercentIndicator(
                             radius: 120.0,
                             lineWidth: 13.0,
                             animation: true,
                             animationDuration: 600,
-                            percent: 0.7,
+                            percent: nivel.xp/(nivel.nivel*300),
                             circularStrokeCap: CircularStrokeCap.round,
                             progressColor: Colors.indigo[400],
                             center: Column(
@@ -128,7 +133,7 @@ class _PerfilState extends State<Perfil> {
                                   height: 5,
                                 ),
                                 Text(
-                                  "7",
+                                  "${nivel.nivel}",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
@@ -138,6 +143,8 @@ class _PerfilState extends State<Perfil> {
                               ],
                             ),
                           ),
+                          ),
+                          
 
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
