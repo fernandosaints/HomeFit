@@ -47,9 +47,10 @@ class _PerfilState extends State<Perfil> {
 
   @override
   void didChangeDependencies() {
+    if(_image != null){
+      precacheImage(FileImage(_image), context);
+    }
     super.didChangeDependencies();
-
-    precacheImage(FileImage(_image), context);
   }
   
   @override
