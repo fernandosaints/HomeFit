@@ -1,14 +1,14 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:home_fit/Services/AppLocalizations.dart';
+import 'package:home_fit/UI/CalendarScreen.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'Nivel.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 final nivel = Nivel();
+File _image;
 
 class Perfil extends StatefulWidget {
   final String email;
@@ -29,15 +29,8 @@ class _PerfilState extends State<Perfil> {
   
   String _titleText;
 
-  File _image;
   final picker = ImagePicker();
 
-  @override
-  void initState() {
-
-    super.initState();
-  }
-  
   Future getImage() async {
 
     final pickedFile = await picker.getImage(source: ImageSource.camera);
@@ -47,6 +40,17 @@ class _PerfilState extends State<Perfil> {
     });
   }
 
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    precacheImage(FileImage(_image), context);
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -61,6 +65,15 @@ class _PerfilState extends State<Perfil> {
           color: Colors.black
         ),
         actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.calendar_today, color: Colors.black,),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => CalendarScreen(),
+              ),
+            ),
+          ),
           IconButton(
             icon: Icon(
               Icons.add_a_photo,
