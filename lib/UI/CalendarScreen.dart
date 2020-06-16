@@ -10,42 +10,83 @@ class CalendarScreen extends StatefulWidget {
 
 class _CalendarScreenState extends State<CalendarScreen> {
 
-  void _handleNewDate(date) {
-    setState(() {
-      _selectedDay = date;
-      _selectedEvents = _events[_selectedDay] ?? [];
-    });
-  }
+  TextEditingController _textFieldController = TextEditingController();
 
   List _selectedEvents;
   DateTime _selectedDay;
 
-  final Map<DateTime, List> _events = {
-    DateTime(2020, 5, 7): [
-      {'name': 'Event A', 'isDone': true},
-    ],
-    DateTime(2020, 5, 9): [
-      {'name': 'Event A', 'isDone': true},
-      {'name': 'Event B', 'isDone': true},
-    ],
-    DateTime(2020, 5, 10): [
-      {'name': 'Event A', 'isDone': true},
-      {'name': 'Event B', 'isDone': true},
-    ],
-    DateTime(2020, 5, 13): [
-      {'name': 'Event A', 'isDone': true},
-      {'name': 'Event B', 'isDone': true},
-      {'name': 'Event C', 'isDone': false},
-    ],
-    DateTime(2020, 5, 25): [
-      {'name': 'Event A', 'isDone': true},
-      {'name': 'Event B', 'isDone': true},
-      {'name': 'Event C', 'isDone': false},
-    ],
-    DateTime(2020, 6, 6): [
-      {'name': 'Event A', 'isDone': false},
-    ],
-  };
+  // final Map<DateTime, List> _events = {
+  //   DateTime(2020, 5, 7): [
+  //     {'name': 'Event A', 'isDone': true},
+  //   ],
+  //   DateTime(2020, 5, 9): [
+  //     {'name': 'Event A', 'isDone': true},
+  //     {'name': 'Event B', 'isDone': true},
+  //   ],
+  //   DateTime(2020, 5, 10): [
+  //     {'name': 'Event A', 'isDone': true},
+  //     {'name': 'Event B', 'isDone': true},
+  //   ],
+  //   DateTime(2020, 5, 13): [
+  //     {'name': 'Event A', 'isDone': true},
+  //     {'name': 'Event B', 'isDone': true},
+  //     {'name': 'Event C', 'isDone': false},
+  //   ],
+  //   DateTime(2020, 5, 25): [
+  //     {'name': 'Event A', 'isDone': true},
+  //     {'name': 'Event B', 'isDone': true},
+  //     {'name': 'Event C', 'isDone': false},
+  //   ],
+  //   DateTime(2020, 6, 6): [
+  //     {'name': 'Event A', 'isDone': false},
+  //   ],
+  // };
+
+  final Map<DateTime, List> _events = {};
+
+  _displayDialog(BuildContext context) async {
+    _textFieldController.clear();
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Adicionar Tarefa'),
+            content: TextField(
+              controller: _textFieldController,
+              decoration: InputDecoration(hintText: "Tarefa"),
+            ),
+            actions: <Widget>[
+              new FlatButton(
+                child: new Text('Cancelar'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              new FlatButton(
+                child:  new Text('Confirmar'),
+                onPressed: () {
+                  if(_textFieldController.text.isNotEmpty){
+                    if(_events[_selectedDay] == null){
+                      _events[_selectedDay] = [{'name': _textFieldController.text, 'isDone': false}];
+                    }
+                    else {
+                      _events[_selectedDay].add({'name': _textFieldController.text, 'isDone': false});
+                    }
+                  }
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        });
+  }
+
+  void _handleNewDate(date) {
+    super.setState(() {
+      _selectedDay = date;
+      _selectedEvents = _events[_selectedDay] ?? [];
+    });
+  }
 
   @override
   void initState() {
@@ -70,7 +111,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
               Icons.add,
               color: Colors.black,
             ),
-            onPressed: () => _events[_selectedDay] = [{'name': 'Teste', 'isDone': false}]
+            onPressed: () => _displayDialog(context),
           ),
         ]
       ),
@@ -118,7 +159,20 @@ class _CalendarScreenState extends State<CalendarScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 4.0),
           child: ListTile(
             title: Text(_selectedEvents[index]['name'].toString()),
-            onTap: () {},
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(
+                    Icons.delete_outline,
+                    size: 20.0,
+                    color: Colors.black
+                  ),
+                  onPressed: () {
+                    setState(() { _events[_selectedDay].removeAt(index);  });
+                  },
+              ),]
+            ),
           ),
         ),
         itemCount: _selectedEvents.length,
