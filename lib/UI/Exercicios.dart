@@ -4,6 +4,9 @@ import 'package:home_fit/UI/HomePage.dart';
 import 'package:home_fit/UI/Info.dart';
 import 'package:home_fit/UI/MyCard.dart';
 import 'package:home_fit/UI/ScaleRoute.dart';
+import 'Perfil.dart';
+
+
 
 class Exercicios extends StatelessWidget {
   final String title;
@@ -66,7 +69,12 @@ class Exercicios extends StatelessWidget {
             ),
           ),
         ),
-      )
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: nivel.GiveXP,
+        tooltip: 'AumentaXP',
+        child: Icon(Icons.add),
+      ),
     );
   }
 
