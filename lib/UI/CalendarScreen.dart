@@ -99,7 +99,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text("Calendar", style: TextStyle(color:Colors.black),),
+        title: Text("Calendário", style: TextStyle(color:Colors.black),),
         centerTitle: true,
         elevation: 0.0,
         iconTheme: IconThemeData(
@@ -124,7 +124,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
               //padding: EdgeInsets.only(top: 50),
               child: Calendar(
                 startOnMonday: true,
-                weekDays: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+                weekDays: ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"],
                 events: _events,
                 onRangeSelected: (range) =>
                     print("Range is ${range.from}, ${range.to}"),
