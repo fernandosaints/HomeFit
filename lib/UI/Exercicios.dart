@@ -4,6 +4,7 @@ import 'package:home_fit/UI/HomePage.dart';
 import 'package:home_fit/UI/Info.dart';
 import 'package:home_fit/UI/MyCard.dart';
 import 'package:home_fit/UI/ScaleRoute.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'Perfil.dart';
 
 
@@ -71,9 +72,27 @@ class Exercicios extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: nivel.GiveXP,
+        onPressed: (){
+          Alert(context: context,
+            style: AlertStyle(isCloseButton: false),
+            type: AlertType.success,
+            title: "EXERCÍCIO REALIZADO!",
+            desc: "Você recebeu +100XP.",
+            buttons: [
+              DialogButton(
+                child: Text("Confirmar",style: TextStyle(color: Colors.white, fontSize: 20),),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                color: Color.fromRGBO(0, 179, 134, 1.0),
+                radius: BorderRadius.circular(0.0),
+              ),
+            ],).show();
+            nivel.GiveXP();
+        },
         tooltip: 'AumentaXP',
-        child: Icon(Icons.add),
+        child: Icon(Icons.check),
+        backgroundColor: color,
       ),
     );
   }

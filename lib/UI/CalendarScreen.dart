@@ -42,7 +42,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
   //   ],
   // };
 
-  final Map<DateTime, List> _events = {};
+  Map<DateTime, List> _events = {};
 
   _displayDialog(BuildContext context) async {
     _textFieldController.clear();
@@ -67,7 +67,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
                 onPressed: () {
                   if(_textFieldController.text.isNotEmpty){
                     if(_events[_selectedDay] == null){
-                      _events[_selectedDay] = [{'name': _textFieldController.text, 'isDone': false}];
+                      _events[_selectedDay] = [];
+                      _events[_selectedDay].add({'name': _textFieldController.text, 'isDone': false});
                     }
                     else {
                       _events[_selectedDay].add({'name': _textFieldController.text, 'isDone': false});
