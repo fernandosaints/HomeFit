@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_calendar/flutter_clean_calendar.dart';
 
+Map<DateTime, List> _events = {};
+
 class CalendarScreen extends StatefulWidget {
+
   @override
   State<StatefulWidget> createState() {
     return _CalendarScreenState();
@@ -15,34 +18,9 @@ class _CalendarScreenState extends State<CalendarScreen> {
   List _selectedEvents;
   DateTime _selectedDay;
 
-  // final Map<DateTime, List> _events = {
-  //   DateTime(2020, 5, 7): [
-  //     {'name': 'Event A', 'isDone': true},
-  //   ],
-  //   DateTime(2020, 5, 9): [
-  //     {'name': 'Event A', 'isDone': true},
-  //     {'name': 'Event B', 'isDone': true},
-  //   ],
-  //   DateTime(2020, 5, 10): [
-  //     {'name': 'Event A', 'isDone': true},
-  //     {'name': 'Event B', 'isDone': true},
-  //   ],
-  //   DateTime(2020, 5, 13): [
-  //     {'name': 'Event A', 'isDone': true},
-  //     {'name': 'Event B', 'isDone': true},
-  //     {'name': 'Event C', 'isDone': false},
-  //   ],
-  //   DateTime(2020, 5, 25): [
-  //     {'name': 'Event A', 'isDone': true},
-  //     {'name': 'Event B', 'isDone': true},
-  //     {'name': 'Event C', 'isDone': false},
-  //   ],
-  //   DateTime(2020, 6, 6): [
-  //     {'name': 'Event A', 'isDone': false},
-  //   ],
-  // };
-
-  Map<DateTime, List> _events = {};
+   getEvents() {
+    return _events;
+  }
 
   _displayDialog(BuildContext context) async {
     _textFieldController.clear();
@@ -92,7 +70,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
   @override
   void initState() {
     super.initState();
-    _selectedEvents = _events[_selectedDay] ?? [];
+    _events = getEvents();
+    _selectedEvents = _events[_selectedDay] ?? []; 
   }
 
   @override
