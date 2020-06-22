@@ -14,6 +14,7 @@ abstract class _Nivel with Store {
 
     if(xp >= (nivel)*300) {
       nivel++;
+      xp = 0;
     }
   }
 }

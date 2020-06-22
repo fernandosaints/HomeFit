@@ -6,6 +6,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'Nivel.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'dart:async';
+import 'package:flutter/services.dart';
 
 final nivel = Nivel();
 File _image;
@@ -28,8 +30,25 @@ class Perfil extends StatefulWidget {
 class _PerfilState extends State<Perfil> {
   
   String _titleText;
+  static const platform = const MethodChannel('Homefit.flutter.dev/battery');
 
   final picker = ImagePicker();
+
+  String _batteryLevel = '??%';
+
+  Future<void> _getBatteryLevel() async {
+    String batteryLevel;
+    try {
+      final int result = await platform.invokeMethod('getBatteryLevel');
+      batteryLevel = '$result%';
+    } on PlatformException catch (e) {
+      batteryLevel = "Failed to get battery level: '${e.message}'.";
+    }
+
+    setState(() {
+      _batteryLevel = batteryLevel;
+    });
+  }
 
   Future getImage() async {
 
@@ -67,6 +86,12 @@ class _PerfilState extends State<Perfil> {
         ),
         actions: <Widget>[
           IconButton(
+              icon: Icon(
+                Icons.battery_unknown
+              ),
+              onPressed: _getBatteryLevel,
+            ),
+          IconButton(
             icon: Icon(Icons.calendar_today, color: Colors.black,),
             onPressed: () => Navigator.push(
               context,
@@ -81,7 +106,7 @@ class _PerfilState extends State<Perfil> {
               color: Colors.black,
             ),
             onPressed: getImage,
-          )
+          ),
         ],
       ),
       body: Center(
@@ -159,7 +184,13 @@ class _PerfilState extends State<Perfil> {
                           ),
                           ),
                           
-
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(_batteryLevel),
+                              Icon(Icons.battery_full),
+                            ]
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: <Widget>[],
