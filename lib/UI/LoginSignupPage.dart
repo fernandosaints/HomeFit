@@ -17,6 +17,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   
   final _formKey = new GlobalKey<FormState>();
 
+  String _name;
   String _email;
   String _password;
   String _errorMessage;
@@ -109,8 +110,8 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
-        children: <Widget>[
-          showForm(),
+        children: <Widget>
+        [_isLoginForm ? showFormLogin() : showFormRegister(),
           showCircularProgress(),
         ],
       )
@@ -131,7 +132,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
     );
   }
 
-  Widget showForm() {
+  Widget showFormLogin() {
     return new Container(
       padding: EdgeInsets.all(16.0),
       child: new Form(
@@ -142,6 +143,32 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
             SizedBox(height: 150),
             showLogo(),
             SizedBox(height: 48.0),
+            showEmailInput(),
+            SizedBox(height: 8.0),
+            showPasswordInput(),
+            SizedBox(height: 24.0),
+            showPrimaryButton(),
+            showSecondaryButton(),
+            showErrorMessage(),
+          ],
+        ),
+      )
+    );
+  }
+
+  Widget showFormRegister() {
+    return new Container(
+      padding: EdgeInsets.all(16.0),
+      child: new Form(
+        key: _formKey,
+        child: new ListView(
+          shrinkWrap: true,
+          children: <Widget>[
+            SizedBox(height: 150),
+            showLogo(),
+            SizedBox(height: 48.0),
+            showNameInput(),
+            SizedBox(height: 8.0),
             showEmailInput(),
             SizedBox(height: 8.0),
             showPasswordInput(),
@@ -173,6 +200,15 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   
   Widget showLogo(){
     return Container(child: Image.asset('assets/logo.png'));
+  }
+
+  Widget showNameInput(){
+    return CustomTextField(
+      icon: Icon(Icons.person),
+      validator: (value) => value.isEmpty ? "* Nome necessário" : null,
+      onSaved: (value) => _name = value.trim(),
+      hint: "Nome",
+    );
   }
 
   Widget showEmailInput(){
